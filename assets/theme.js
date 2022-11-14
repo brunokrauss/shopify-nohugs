@@ -3618,7 +3618,7 @@ var productDisplay = {
 
     // If variant metafield sold out is true, disable add to cart button
     var soldOut = productVariantOutOfStock[variant.id];
-    console.log(soldOut)
+    // console.log(soldOut)
     if (soldOut) {
       $(selectors$12.submitButton, this.$container).prop('disabled', true);
       // set sold out text
