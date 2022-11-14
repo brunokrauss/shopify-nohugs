@@ -3615,6 +3615,15 @@ var productDisplay = {
     morphdom(this.$container[0], this._updatedContainer(this.variant));
 
     this.trigger('variant_change', [this.product, variant]);
+
+    // If variant metafield sold out is true, disable add to cart button
+    var soldOut = productVariantOutOfStock[variant.id];
+    console.log(soldOut)
+    if (soldOut) {
+      $(selectors$12.submitButton, this.$container).prop('disabled', true);
+      // set sold out text
+      $(selectors$12.submitButtonPrimaryText, this.$container).text('Sold Out');
+    }
   },
 
   _preloadVariantMediaImages: function() {
